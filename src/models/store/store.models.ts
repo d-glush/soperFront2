@@ -26,5 +26,5 @@ export type Cell = {
 export type CellData = {
   x: number;
   y: number;
-  click: 'leftClick';
+  type: string;
 }

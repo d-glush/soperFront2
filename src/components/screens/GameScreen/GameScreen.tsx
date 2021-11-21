@@ -5,8 +5,12 @@ import './GameScreen.css'
 const GameScreen: React.FC = () => {
     const { dataItems, updateData } = store;
     const update = (x: number, y: number, click: boolean) => {
-        const str = `{x: ${x}, y: ${y}, click: leftClick}`;
-        updateData(str);
+        const obj = {
+            x,
+            y,
+            type: 'leftClick',
+        };
+        updateData(obj);
     }
 
     return (

@@ -8,7 +8,7 @@ import {
 } from "mobx";
 
 import service from "./store.service";
-import { DataParams } from './store.models'
+import { CellData, DataParams } from './store.models'
 
 const initialStoreValues = {
   data: {
@@ -53,7 +53,7 @@ class DatasetStore {
       console.error(error);
     }
   }
-  async updateData(parametrs: string) {
+  async updateData(parametrs: CellData) {
     try {
       const date: void | DataParams = await service.updateData(parametrs);
       console.log('date', date);
