@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import store from '../../../models/store/store';
-import './GameScreen.css'
+import './GameScreen.css';
+// import image1 from '../../../assets/image1'
 const GameScreen: React.FC = () => {
     const { dataItems, updateData } = store;
     const update = (x: number, y: number, click: boolean) => {
@@ -23,9 +24,8 @@ const GameScreen: React.FC = () => {
                             {
                                 row.map((cell, inx) => {
                                     return (
-                                        <div onClick={() => update(index, inx, true)} className='cell'>
-                                            {cell.cellStatus.value}
-                                            {cell.cellValue.value}
+                                        <div onClick={() => update(inx, index, true)} className='cell'>
+                                            {cell.cellStatus.value ? cell.cellValue.value : ''}
                                         </div>
                                     )
                                 })

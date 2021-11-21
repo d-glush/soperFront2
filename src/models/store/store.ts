@@ -34,6 +34,7 @@ class DatasetStore {
     makeObservable(this, {
       data: observable,
       loadData: action.bound,
+      updateData: action.bound,
       dataItems: computed,
     });
   }
@@ -44,9 +45,9 @@ class DatasetStore {
       console.log('date', date);
       runInAction(() => {
         if (date) {
-          console.log('jifbhehudnowufhdnoeuhdbjx');
+          // console.log('jifbhehudnowufhdnoeuhdbjx');
           this.data = date;
-          console.log(this.data, 'this.data');
+          // console.log(this.data, 'this.data');
         }
       });
     } catch (error) {
@@ -59,9 +60,8 @@ class DatasetStore {
       console.log('date', date);
       runInAction(() => {
         if (date) {
-          // console.log('jifbhehudnowufhdnoeuhdbjx');
-          // this.data = date;
-          // console.log(this.data, 'this.data');
+          this.data = date;
+          console.log(this.data, 'this.updata');
         }
       });
     } catch (error) {
