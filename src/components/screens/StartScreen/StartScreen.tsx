@@ -1,24 +1,11 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import store from '../../../models/store/store';
 
 const StartScreen: React.FC = () => {
-    const getArray = async () => {
-
-        axios.post('http://localhost/soper-api/game/start-new-game', {
-            gameSettings: '{"complexity": "easy"}',
-        },
-            {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Request-Origin': '*',
-                    "Content-Type": "text/html",
-                },
-            })
-            .then(res => res.data)
-            .then(data => {
-                console.log(data);
-            })
+    const setArray = () => {
+        store.loadData('{"complexity": "easy"}');
     }
     return (
         <div>
@@ -30,10 +17,11 @@ const StartScreen: React.FC = () => {
                     <option>Сложный</option>
                 </select>
             </form>
-                <Link to="/game">Начать игру</Link>
-                <button onClick={getArray}>получить</button>
+
+            <button onClick={setArray}>Сохранить настройки</button>
+            <Link to="/game">Начать игру</Link>
         </div>
     );
 };
 
-export default StartScreen;
+export default observer(StartScreen);
