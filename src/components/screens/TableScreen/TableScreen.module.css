@@ -1,0 +1,36 @@
+.TableList {
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.TableList th {
+  text-align: center;
+  padding: 0 40px;
+  background-color: #f7f7f7;
+  line-height: 40px;
+}
+.TableList tr {
+  text-align: center;
+  transition: 0.6s;
+  background: #fff;
+}
+.TableList tr:hover {
+  cursor: pointer;
+  background: #f7f7f7;
+}
+.TableList td {
+  padding: 10px;
+}
+.TableList tbody {
+  border-top: 0.5px solid rgb(173, 173, 173);
+}
+
+.link{
+    display: block;
+    padding: 20px;
+    background-color: rgb(156, 136, 136);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
