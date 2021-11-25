@@ -1,0 +1,43 @@
+.component {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.full{
+    min-height: 100vh;
+    background: url("../../../assets/full2.jpg") center / cover no-repeat fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.wrapper{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.desck{
+    background-color: #fff;
+}
+
+.link{
+    display: block;
+    padding: 20px;
+    background-color: rgb(156, 136, 136);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}

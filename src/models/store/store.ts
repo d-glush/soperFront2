@@ -9,8 +9,11 @@ import {
 
 import service from "./store.service";
 import { CellData, DataParams } from './store.models'
+import { Auth, LoginStatus } from ".";
 
 const initialStoreValues = {
+  loginStatus: 0,
+  value: 'easy',
   data: {
     error: true,
     fieldHeight: 1,
@@ -18,7 +21,7 @@ const initialStoreValues = {
     minesCount: 1,
     openedMinesCount: 1,
     gameStatus: {
-      value: ''
+      value: 0
     },
     field: [
       [{cellStatus: {value: 1}, cellValue: {value: 1}}],
@@ -29,12 +32,19 @@ const initialStoreValues = {
 class DatasetStore {
   data: DataParams = initialStoreValues.data;
 
+  value: string = initialStoreValues.value;
+
+  loginStatus: number = initialStoreValues.loginStatus;
 
   constructor() {
     makeObservable(this, {
       data: observable,
+      value: observable,
+      loginStatus: observable,
+      updateValue: action.bound,
       loadData: action.bound,
       updateData: action.bound,
+      setLoginStatus: action.bound,
       dataItems: computed,
     });
   }
@@ -42,26 +52,49 @@ class DatasetStore {
   async loadData(complexity: string) {
     try {
       const date: void | DataParams = await service.getData(complexity);
-      console.log('date', date);
       runInAction(() => {
         if (date) {
-          // console.log('jifbhehudnowufhdnoeuhdbjx');
           this.data = date;
-          // console.log(this.data, 'this.data');
         }
       });
     } catch (error) {
       console.error(error);
     }
   }
+
+  async setLoginStatus(data: Auth) {
+    try {
+      const loginStatus: LoginStatus = await service.getLogin(data);
+      console.log(loginStatus);
+    } catch (error) {
+      
+    }
+  }
+
+  updateValue(value: string) {
+    switch (value) {
+      case 'Лёгкий':
+        this.value = 'easy';
+        break;
+      case 'Средний':
+        this.value = 'medium';
+        break;
+      case 'Сложный':
+        this.value = 'hard';
+        break;
+
+      default:
+        break;
+    }
+  }
+
   async updateData(parametrs: CellData) {
     try {
       const date: void | DataParams = await service.updateData(parametrs);
-      console.log('date', date);
+      console.log(date);
       runInAction(() => {
         if (date) {
           this.data = date;
-          console.log(this.data, 'this.updata');
         }
       });
     } catch (error) {

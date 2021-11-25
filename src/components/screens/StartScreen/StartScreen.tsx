@@ -2,24 +2,27 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import store from '../../../models/store/store';
+import styles from './StartScreen.module.css';
 
 const StartScreen: React.FC = () => {
-    const setArray = () => {
-        store.loadData('{"complexity": "easy"}');
+    const changeValue = (value: string) => {
+        store.updateValue(value);
     }
     return (
-        <div>
-            <h1>Стартовый экран</h1>
-            <form>
-                <select>
-                    <option>Лёгкий</option>
-                    <option>Средний</option>
-                    <option>Сложный</option>
-                </select>
-            </form>
-
-            <button onClick={setArray}>Сохранить настройки</button>
-            <Link to="/game">Начать игру</Link>
+        <div className={styles.component}>
+            <div className={styles.full}>
+                <div className={styles.window}>
+                    <p>Выберите уроветь сложрости</p>
+                    <form>
+                        <select className={styles.select} onChange={e => changeValue(e.target.value)}>
+                            <option>Лёгкий</option>
+                            <option>Средний</option>
+                            <option>Сложный</option>
+                        </select>
+                        <Link className={styles.btnPlay} to="/game">Начать игру</Link>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };

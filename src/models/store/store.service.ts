@@ -1,5 +1,6 @@
 import axios from "axios";
-import { CellData, DataParams } from "./store.models";
+import { LoginStatus } from ".";
+import { CellData, DataParams, Auth } from "./store.models";
 
 const service = {
   getData(data: string): Promise<DataParams | void> {
@@ -22,6 +23,19 @@ const service = {
     return axios({
       method: "post",
       url: "http://localhost/soper-api/game/make-step",
+      data: bodyFormData,
+      headers: { "Content-Type": "multipart/form-data" },
+      withCredentials: true,
+    })
+      .then((res) => res.data)
+  },
+  getLogin(data: Auth): Promise<LoginStatus> {
+    const bodyFormData = new FormData();
+    bodyFormData.append("login", `${data.login}`);
+    bodyFormData.append("password", `${data.password}`);
+    return axios({
+      method: "get",
+      url: "http://localhost/soper-api/save_result",
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,

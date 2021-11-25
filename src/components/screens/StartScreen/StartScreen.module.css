@@ -1,0 +1,34 @@
+.component {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.full{
+    min-height: 100vh;
+    background: url("../../../assets/full.jpg") center / cover no-repeat fixed;
+}
+.window{
+    background-color: rgba(153, 153, 153, .4);
+    text-align: center;
+    display: block;
+    margin: 10%;
+    padding: 20px 50px;
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+}
+.select{
+    width: 100%;
+    height: 40px;
+    padding: 3px 10px;
+}
+.btnPlay{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(173, 147, 147);
+
+}

@@ -8,7 +8,6 @@ import TableScreen from './components/screens/TableScreen';
 function App() {
   return (
     <>
-    <p>hello</p>
     <Routes>
       <Route path="/" element={<StartScreen/>} />
       <Route path="/game" element={<GameScreen/>} />

@@ -9,10 +9,18 @@ export type DataParams = {
 };
 
 export type Status = {
-  value: string,
+  value: number,
 }
 
 
+export type LoginStatus = {
+  status: number;
+}
+
+export type Auth = {
+  login: string;
+  password: string;
+}
 
 export type Cell = {
   cellValue: {
