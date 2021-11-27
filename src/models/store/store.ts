@@ -9,7 +9,7 @@ import {
 
 import service from "./store.service";
 import { CellData, DataParams } from "./store.models";
-import { Auth, LoginStatus } from ".";
+import { Auth, LoginStatus, Tables } from ".";
 
 const initialStoreValues = {
   loginStatus: 0,
@@ -25,6 +25,12 @@ const initialStoreValues = {
     },
     field: [[{ cellStatus: { value: 1 }, cellValue: { value: 1 } }]],
   },
+  tables: {
+    topEasy: [{id: 1,userId: 1,login: "",complexity: "",date: "",gameTime: 1,stepsCount: 1},],
+    topMedium: [{id: 1,userId: 1,login: "",complexity: "",date: "",gameTime: 1,stepsCount: 1},],
+    topHard: [{id: 1,userId: 1,login: "",complexity: "",date: "",gameTime: 1,stepsCount: 1},],
+    me: {id: 1,userId: 1,login: "",complexity: "",date: "",gameTime: 1,stepsCount: 1, position: 0},
+  }
 };
 
 class DatasetStore {
@@ -34,12 +40,16 @@ class DatasetStore {
 
   loginStatus: number = initialStoreValues.loginStatus;
 
+  tables: Tables = initialStoreValues.tables;
+
   constructor() {
     makeObservable(this, {
       data: observable,
       value: observable,
+      tables: observable,
       loginStatus: observable,
       updateValue: action.bound,
+      loadTable: action.bound,
       loadData: action.bound,
       updateData: action.bound,
       setLoginStatus: action.bound,
@@ -47,6 +57,18 @@ class DatasetStore {
     });
   }
 
+  async loadTable() {
+    try {
+      const tbls: Tables = await service.getTable();
+      runInAction(() => {
+        if (tbls) {
+          this.tables = tbls;
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
   async loadData(complexity: string) {
     try {
       const date: void | DataParams = await service.getData(complexity);

@@ -22,20 +22,24 @@ export type Auth = {
 };
 
 export type Tables = {
-  top: Array<TopTableCol>;
-  me: MyTableCol
+  topEasy: Array<TopTableCol>;
+  topMedium: Array<TopTableCol>;
+  topHard: Array<TopTableCol>;
+  me: MyTableCol;
 };
 
 export type MyTableCol = {
+  id: number;
+  userId: number;
   login: string;
   complexity: string;
   date: string;
   gameTime: number;
   stepsCount: number;
-  topPlace: number;
+  position: number,
 };
 
-export type TopTableCol = Omit<MyTableCol, "topPlace">;
+export type TopTableCol = Omit<MyTableCol, "topPlace" | "position">;
 
 export type Cell = {
   cellValue: {

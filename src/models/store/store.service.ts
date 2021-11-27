@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginStatus } from ".";
+import { LoginStatus, Tables } from ".";
 import { CellData, DataParams, Auth } from "./store.models";
 
 const service = {
@@ -37,6 +37,15 @@ const service = {
       method: "post",
       url: "http://localhost/soper-api/save_result",
       data: bodyFormData,
+      headers: { "Content-Type": "multipart/form-data" },
+      withCredentials: true,
+    })
+      .then((res) => res.data)
+  },
+  getTable(): Promise<Tables> {
+    return axios({
+      method: "post",
+      url: "http://localhost/soper-api/scoreboard",
       headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,
     })
