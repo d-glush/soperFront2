@@ -93,7 +93,7 @@ class DatasetStore {
     }
   }
 
-  updateValue(value: string) {
+   updateValue(value: string) {
     switch (value) {
       case "Лёгкий":
         this.value = "easy";

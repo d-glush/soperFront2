@@ -24,7 +24,8 @@ const Modal: React.FC<ModalProps> = ({ status }) => {
         });
         console.log('store.loginStatus', store.loginStatus);
         if (store.loginStatus !== 401) {
-            history.push('/table');
+            await store.loadTable();
+            await history.push('/table');
         }
     }
 

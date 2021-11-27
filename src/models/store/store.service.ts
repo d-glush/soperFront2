@@ -5,7 +5,7 @@ import { CellData, DataParams, Auth } from "./store.models";
 const service = {
   getData(data: string): Promise<DataParams | void> {
     const bodyFormData = new FormData();
-    bodyFormData.append("gameSettings", `{"complexity": "custom", "fieldHeight": 6, "fieldWidth": 6, "minesCount": 3}`);
+    bodyFormData.append("gameSettings", data);  
     return axios({
       method: "post",
       url: "http://localhost/soper-api/game/start-new-game",

@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import store from '../../../models/store/store';
 import styles from './StartScreen.module.css';
@@ -8,6 +8,9 @@ const StartScreen: React.FC = () => {
     const changeValue = (value: string) => {
         store.updateValue(value);
     }
+    useEffect(() => {
+        store.updateValue('Лёгкий');
+    }, [])
     return (
         <div className={styles.component}>
             <div className={styles.full}>
