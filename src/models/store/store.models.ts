@@ -13,7 +13,7 @@ export type Status = {
 };
 
 export type LoginStatus = {
-  status: number;
+  saveStatus: number;
 };
 
 export type Auth = {

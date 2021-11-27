@@ -1,5 +1,7 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import store from '../../models/store/store';
 import styles from './Modal.module.css';
 
@@ -8,18 +10,25 @@ type ModalProps = {
 }
 
 const Modal: React.FC<ModalProps> = ({ status }) => {
+    const { path } = useRouteMatch();
+    const history = useHistory();
+    console.log(path);
 
     const [log, setLog] = React.useState<string>('');
     const [pass, setPass] = React.useState<string>('');
 
-    const submit = () => {
-        store.setLoginStatus({
+    const submit = async () => {
+        await store.setLoginStatus({
             login: log,
             password: pass,
-        })
+        });
+        console.log('store.loginStatus', store.loginStatus);
+        if (store.loginStatus !== 401) {
+            history.push('/table');
+        }
     }
 
-    if (status === 1) {
+    if (status === 2) {
         return (
             <>
                 <div className={styles.gray}></div>
@@ -34,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({ status }) => {
             </>
         );
     }
-    if (status === 2) {
+    if (status === 1) {
         return (
             <>
                 <div className={styles.gray}></div>
@@ -58,4 +67,4 @@ const Modal: React.FC<ModalProps> = ({ status }) => {
     return <div></div>
 };
 
-export default Modal;
+export default observer(Modal);

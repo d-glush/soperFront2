@@ -48,7 +48,8 @@ const TableScreen: React.FC = () => {
 
 
     return (
-        <div>
+        <div className={styles.component}>
+            <div className={styles.full}>
             <Link className={styles.link} to="/">Вернуться домой</Link>
             <table className={styles.TableList}>
                 <caption><h2>Результат</h2></caption>
@@ -100,6 +101,7 @@ const TableScreen: React.FC = () => {
                     }
                 </tbody>
             </table>
+            </div>
         </div>
     );
 };

@@ -4,16 +4,16 @@ import {
   observable,
   action,
   runInAction,
-  computed
+  computed,
 } from "mobx";
 
 import service from "./store.service";
-import { CellData, DataParams } from './store.models'
+import { CellData, DataParams } from "./store.models";
 import { Auth, LoginStatus } from ".";
 
 const initialStoreValues = {
   loginStatus: 0,
-  value: 'easy',
+  value: "easy",
   data: {
     error: true,
     fieldHeight: 1,
@@ -21,11 +21,9 @@ const initialStoreValues = {
     minesCount: 1,
     openedMinesCount: 1,
     gameStatus: {
-      value: 0
+      value: 0,
     },
-    field: [
-      [{cellStatus: {value: 1}, cellValue: {value: 1}}],
-    ]
+    field: [[{ cellStatus: { value: 1 }, cellValue: { value: 1 } }]],
   },
 };
 
@@ -65,22 +63,24 @@ class DatasetStore {
   async setLoginStatus(data: Auth) {
     try {
       const loginStatus: LoginStatus = await service.getLogin(data);
-      console.log(loginStatus);
+      runInAction(() => {
+        this.loginStatus = loginStatus.saveStatus;
+      });
     } catch (error) {
-      
+      console.log(error);
     }
   }
 
   updateValue(value: string) {
     switch (value) {
-      case 'Лёгкий':
-        this.value = 'easy';
+      case "Лёгкий":
+        this.value = "easy";
         break;
-      case 'Средний':
-        this.value = 'medium';
+      case "Средний":
+        this.value = "medium";
         break;
-      case 'Сложный':
-        this.value = 'hard';
+      case "Сложный":
+        this.value = "hard";
         break;
 
       default:

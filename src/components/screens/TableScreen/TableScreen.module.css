@@ -1,3 +1,13 @@
+.component {
+    color: rgb(133, 133, 41);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .full{
+      min-height: 100vh;
+      background: url("https://sun9-71.userapi.com/impf/a1gGulTODl9AVTIwECvn1SHQWL-qO1qLSy-Z1A/_CwIaq5UUv4.jpg?size=1080x1080&quality=96&sign=a1c11e11c05c44f41e156d44806a6bc9&type=album") center 20% / cover no-repeat fixed;
+  }
 .TableList {
   margin: 0 auto;
   border-collapse: collapse;

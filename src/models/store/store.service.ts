@@ -5,7 +5,7 @@ import { CellData, DataParams, Auth } from "./store.models";
 const service = {
   getData(data: string): Promise<DataParams | void> {
     const bodyFormData = new FormData();
-    bodyFormData.append("gameSettings", data);
+    bodyFormData.append("gameSettings", `{"complexity": "custom", "fieldHeight": 6, "fieldWidth": 6, "minesCount": 3}`);
     return axios({
       method: "post",
       url: "http://localhost/soper-api/game/start-new-game",
@@ -34,7 +34,7 @@ const service = {
     bodyFormData.append("login", `${data.login}`);
     bodyFormData.append("password", `${data.password}`);
     return axios({
-      method: "get",
+      method: "post",
       url: "http://localhost/soper-api/save_result",
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
