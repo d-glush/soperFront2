@@ -34,7 +34,7 @@ const TableScreen: React.FC = () => {
             <div className={styles.full}>
                 <Link className={styles.link} to="/">Вернуться домой</Link>
                 <table className={styles.TableList}>
-                    <caption><h2>Результат</h2></caption>
+                    {/* <caption><h2>Результат</h2></caption> */}
                     <thead>
                         <tr>
                             <th>Место</th>
@@ -59,7 +59,7 @@ const TableScreen: React.FC = () => {
                     </tbody>
                 </table>
                 <table className={styles.TableList}>
-                    <caption><h2>Топ</h2></caption>
+                    {/* <caption><h2>Топ</h2></caption> */}
                     <thead>
                         <select className={styles.select} value={value} onChange={e => changeValue(e.target.value)}>
                             <option>Лёгкий</option>

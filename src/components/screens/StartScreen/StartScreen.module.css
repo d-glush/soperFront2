@@ -3,32 +3,46 @@
   display: flex;
   flex-direction: column;
 }
-.full{
-    min-height: 100vh;
-    background: url("../../../assets/full.jpg") center / cover no-repeat fixed;
+.full {
+  min-height: 100vh;
+  background: url("https://sun9-73.userapi.com/impg/FVqsP8BXJuIllwIEMlKt9opY915TQW2zWXBCmw/4V7_SfCsbmA.jpg?size=774x333&quality=96&sign=047af7e80724da3fbbfab3b6ec9d9665&type=album")
+    center / cover no-repeat fixed;
 }
-.window{
-    background-color: rgba(153, 153, 153, .4);
-    text-align: center;
-    display: block;
-    margin: 10%;
-    padding: 20px 50px;
-    width: 200px;
-    height: 250px;
-    border: 1px solid black;
-}
-.select{
-    width: 100%;
-    height: 40px;
-    padding: 3px 10px;
-}
-.btnPlay{
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-    background-color: rgb(173, 147, 147);
+.window {
+  text-align: center;
+  display: block;
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 320px;
+  min-height: 215px;
 
+  background: rgba(90, 123, 173, 0.81);
+  color: #fff;
+  padding: 20px;
+  border-radius: 30px;
+}
+.select {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+  padding: 3px 10px;
+  background: #434b91;
+  border-radius: 10px;
+  color: #fff;
+}
+.btnPlay {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background: #434b91;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
 }

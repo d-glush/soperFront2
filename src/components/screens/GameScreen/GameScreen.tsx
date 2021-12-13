@@ -32,29 +32,37 @@ const GameScreen: React.FC = () => {
                     <Link className={styles.link} to="/">Вернуться домой</Link>
                     <Modal status={store.dataItems.gameStatus.value} />
                     <div className={styles.wrapper}>
-                        <div className={styles.desck}>
-                            {
-                                dataItems.field.map((row, index) => {
-                                    return <div className={styles.row} key={index}>
-                                        {
-                                            row.map((cell, inx) => {
-                                                return (
-                                                    <div
-                                                        onContextMenu={(e) => update(e, inx, index, true)}
-                                                        onClick={(e) => update(e, inx, index, true)}
-                                                        className={styles.cell}
-                                                    >
-                                                        <RenderCard status={cell.cellStatus.value} value={cell.cellValue.value} />
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                })
-                            }
+                        <div>
+                            <div className={styles.mineCount}>
+                                Количество мин:  &nbsp;
+                                {
+                                    dataItems.minesCount - dataItems.openedMinesCount > 0 ?
+                                    dataItems.minesCount - dataItems.openedMinesCount : 0
+                                }
+                            </div>
+                            <div className={styles.desck}>
+                                {
+                                    dataItems.field.map((row, index) => {
+                                        return <div className={styles.row} key={index}>
+                                            {
+                                                row.map((cell, inx) => {
+                                                    return (
+                                                        <div
+                                                            onContextMenu={(e) => update(e, inx, index, true)}
+                                                            onClick={(e) => update(e, inx, index, true)}
+                                                            className={styles.cell}
+                                                        >
+                                                            <RenderCard status={cell.cellStatus.value} value={cell.cellValue.value} />
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

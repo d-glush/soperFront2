@@ -1,46 +1,64 @@
 .component {
-    color: rgb(133, 133, 41);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .full{
-      min-height: 100vh;
-      background: url("https://sun9-71.userapi.com/impf/a1gGulTODl9AVTIwECvn1SHQWL-qO1qLSy-Z1A/_CwIaq5UUv4.jpg?size=1080x1080&quality=96&sign=a1c11e11c05c44f41e156d44806a6bc9&type=album") center 20% / cover no-repeat fixed;
-  }
+  color: rgb(133, 133, 41);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.full {
+  min-height: 100vh;
+  background: url("https://sun9-65.userapi.com/impg/eLKs4j770rJleLFctXFctCycIRPsAi2im6SPIA/X4tj_4F2Eps.jpg?size=770x330&quality=96&sign=8958345dc587b0c043bcebfd69481345&type=album")
+    center / cover no-repeat fixed;
+}
 .TableList {
-  margin: 0 auto;
+  margin: 100px auto 0;
   border-collapse: collapse;
   text-align: left;
   margin-bottom: 30px;
+  color: #fff;
 }
 .TableList th {
   text-align: center;
   padding: 0 40px;
-  background-color: #f7f7f7;
+  background: rgba(90, 123, 173, 0.72);
   line-height: 40px;
 }
 .TableList tr {
   text-align: center;
   transition: 0.6s;
-  background: #fff;
+  background: rgba(90, 123, 173, 0.72);
 }
 .TableList tr:hover {
   cursor: pointer;
-  background: #f7f7f7;
+  background: rgba(90, 123, 173, 0.72);
 }
 .TableList td {
   padding: 10px;
 }
 .TableList tbody {
-  border-top: 0.5px solid rgb(173, 173, 173);
+  background: rgba(90, 123, 173, 0.72);
 }
 
-.link{
-    display: block;
-    padding: 20px;
-    background-color: rgb(156, 136, 136);
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.select {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+  padding: 3px 10px;
+  background: #434b91;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.link {
+  display: block;
+  padding: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #434b91;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
 }

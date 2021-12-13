@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({ status }) => {
                     <div className={styles.wrapper}>
                         <div className={styles.modal}>
                             <p>Вы проиграли</p>
-                            <Link to='/'>Домой</Link>
+                            <Link className={styles.button} to='/'>Домой</Link>
                         </div>
                     </div>
                 </div>
@@ -54,12 +54,12 @@ const Modal: React.FC<ModalProps> = ({ status }) => {
                         <p>введиле логин и пароль</p>
 
                         <div>
-                            <input onChange={e => setLog(e.target.value)} value={log} type="text" name="login" />
+                            <input className={styles.input} onChange={e => setLog(e.target.value)} value={log} type="text" name="login" />
                         </div>
                         <div>
-                            <input onChange={e => setPass(e.target.value)} value={pass} type="password" name="password" />
+                            <input className={styles.input} onChange={e => setPass(e.target.value)} value={pass} type="password" name="password" />
                         </div>
-                        <button onClick={submit}>Сохранить</button>
+                        <button className={styles.button} onClick={submit}>Сохранить</button>
                     </div>
                 </div>
             </>
