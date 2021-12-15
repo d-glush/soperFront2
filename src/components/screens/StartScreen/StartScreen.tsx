@@ -15,7 +15,7 @@ const StartScreen: React.FC = () => {
         <div className={styles.component}>
             <div className={styles.full}>
                 <div className={styles.window}>
-                    <p>Выберите уроветь сложрости</p>
+                    <p>Выберите уроветь сложности</p>
                     <form>
                         <select className={styles.select} onChange={e => changeValue(e.target.value)}>
                             <option>Лёгкий</option>
