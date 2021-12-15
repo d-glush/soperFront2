@@ -51,7 +51,7 @@ const Modal: React.FC<ModalProps> = ({ status }) => {
                 <div className={styles.wrapper}>
                     <div className={styles.modal}>
                         <p>Победа!</p>
-                        <p>введиле логин и пароль</p>
+                        <p>Введите логин и пароль</p>
 
                         <div>
                             <input className={styles.input} onChange={e => setLog(e.target.value)} value={log} type="text" name="login" />
